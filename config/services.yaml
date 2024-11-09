@@ -1,0 +1,30 @@
+# config/services.yaml
+# Ce fichier est le point d'entrée pour configurer vos propres services.
+# Les fichiers dans le sous-répertoire packages/ configurent vos dépendances.
+
+# Placez ici les paramètres qui n'ont pas besoin de changer sur chaque machine où l'application est déployée.
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+
+services:
+    # configuration par défaut pour les services dans *ce* fichier
+    _defaults:
+        autowire: true      # Injecte automatiquement les dépendances dans vos services.
+        autoconfigure: true # Enregistre automatiquement vos services en tant que commandes, abonnés d'événements, etc.
+
+    # rend les classes dans src/ disponibles pour être utilisées comme services
+    # cela crée un service par classe dont l'identifiant est le nom de la classe entièrement qualifié
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # Enregistre le service CreditCalculator pour l'interface CreditCalculatorInterface
+    App\Service\CreditCalculatorInterface: '@App\Service\CreditCalculator'
+    
+    # Définition explicite de CreditCalculator si besoin de personnalisation
+    App\Service\CreditCalculator:
+        class: App\Service\CreditCalculator
+        public: true

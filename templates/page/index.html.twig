@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<div
+		class="container">
+		<!-- Main Banner -->
+		<header class="border border-2 mb-5 text-center py-5">
+			<div class="container">
+				<h1 class="display-4">Bienvenue sur le Calculateur de Crédit Bancaire</h1>
+				<p class="lead">Calculez facilement la mensualité de votre crédit avec notre outil simple et rapide.</p>
+				<a href="{{path('credit_app')}}" class="btn btn-light btn-lg">Commencez votre calcul</a>
+			</div>
+		</header>
+
+		<!-- Features Section -->
+		<section class="py-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h3>Simple à utiliser</h3>
+						<p>Entrez le montant du prêt, la durée et le taux d'intérêt pour obtenir instantanément votre mensualité.</p>
+					</div>
+					<div class="col-md-4">
+						<h3>Rapide et efficace</h3>
+						<p>Notre calculateur vous permet d'obtenir des résultats précis en quelques secondes.</p>
+					</div>
+					<div class="col-md-4">
+						<h3>Conforme aux normes</h3>
+						<p>Le calcul est basé sur une formule standard pour garantir des résultats fiables.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Call to Action -->
+		<section class="bg-light py-5 text-center">
+			<div class="container">
+				<h2>Prêt à calculer votre crédit ?</h2>
+				<p class="lead">Cliquez ci-dessous pour commencer et connaître la mensualité exacte de votre prêt bancaire.</p>
+				<a href="{{path('credit_app')}}" class="btn btn-primary btn-lg">Lancer le calculateur de crédit</a>
+			</div>
+		</section>
+
+	</div>
+{% endblock %}

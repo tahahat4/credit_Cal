@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello PageController!
+{% endblock %}
+
+
+{% block content %}
+
+
+	<div class="container my-5">
+		<h2 class="mb-4">Contactez-nous</h2>
+		<form>
+			<div class="mb-3">
+				<label for="email" class="form-label">Email</label>
+				<input type="email" class="form-control" id="email" placeholder="Enter email">
+			</div>
+			<div class="mb-3">
+				<label for="subject" class="form-label">Sujet</label>
+				<input type="text" class="form-control" id="subject" placeholder="">
+			</div>
+			<div class="mb-3">
+				<label for="message" class="form-label">Message</label>
+				<textarea class="form-control" id="message" rows="4"></textarea>
+			</div>
+			<button type="submit" class="btn btn-dark">Submit</button>
+		</form>
+	</div>
+{% endblock %}

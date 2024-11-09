@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Calcul de la Mensualité d'un Crédit</h1>
+
+    <div class="card shadow-sm mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+            <form action="{{ path('credit_app') }}" method="post">
+                <div class="mb-3">
+                    <label for="capital" class="form-label">Montant du prêt :</label>
+                    <input type="number" name="capital" id="capital" class="form-control" placeholder="Entrez le montant en MAD" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="duration" class="form-label">Durée (en mois) :</label>
+                    <input type="number" name="duration" id="duration" class="form-control" placeholder="Ex: 240 pour 20 ans" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="rate" class="form-label">Taux d'intérêt annuel (%):</label>
+                    <input type="number" step="0.01" name="rate" id="rate" class="form-control" placeholder="Ex: 4.5" required>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Calculer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if prixTotal is defined %}
+    <div class="mt-5 text-center">
+        <h2>Résultat :</h2>
+        <p class="display-4">Mensualité : <strong>{{ prixTotal }} MAD</strong></p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
